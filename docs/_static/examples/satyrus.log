@@ -17,8 +17,20 @@ Traceback (most recent call last):
     self.exec(stmt)
   File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 234, in exec
     return self.instructions[cmd](self, *args)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\instructions\run_script.py", line 29, in run_script
-    run_script_penalties(compiler)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\instructions\run_script.py", line 76, in run_script_penalties
-    constraints = {**compiler.constraints[CONS_OPT], **compiler.constraints[CONS_INT]}
-TypeError: 'list' object is not a mapping
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\instructions\def_constraint.py", line 174, in def_constraint
+    compiler.evaluate(expr, miss=False, calc=True, null=False),
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 305, in evaluate
+    result = self._evaluate(item, miss, calc, null)
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 321, in _evaluate
+    return Expr.calculate(Expr(item.head, *(self._evaluate(p, miss, calc) for p in item.tail)))
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 543, in calculate
+    return cls.apply(cls.back_apply(expr, cls.apply_rule), cls.apply_rule)
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 626, in back_apply
+    return f(cls(e.head, *t, *a, **kw))
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 519, in apply_rule
+    e = rule(cls, *e.tail)
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 395, in R_NEG
+    return cls.TABLE[T_NEG][x.head](cls, *x.tail)
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 715, in <lambda>
+    T_MUL: (lambda x, *Y: Expr(T_MUL, x._NEG_(), *Y)),
+TypeError: _NEG_() missing 1 required positional argument: 'self'
