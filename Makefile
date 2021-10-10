@@ -1,7 +1,7 @@
 ifeq ($(OS),Windows_NT)
-	fname=windows.mk
+	fname=".\Makefiles\windows.mk"
 else
-	fname=linux.mk
+	fname="./Makefiles/linux.mk"
 endif
 
 all: update deploy
