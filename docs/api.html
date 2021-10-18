@@ -52,20 +52,18 @@
 <div class="section" id="how-to">
 <h2>How to<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
 <p>In order to define new solver interfaces, one may write a Python file (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) with a <code class="docutils literal notranslate"><span class="pre">SatAPI</span></code> subclass implementing the <code class="docutils literal notranslate"><span class="pre">solve(energy,</span> <span class="pre">**params)</span></code> method.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Future Imports (Python &lt; 3.10)</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
-<span class="kn">from</span> <span class="nn">satyrus</span> <span class="kn">import</span> <span class="n">SatAPI</span><span class="p">,</span> <span class="n">Posiform</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">satyrus</span> <span class="kn">import</span> <span class="n">SatAPI</span><span class="p">,</span> <span class="n">Posiform</span>
 
 <span class="c1"># Your Favourite Solver</span>
 <span class="kn">from</span> <span class="nn">solvers</span> <span class="kn">import</span> <span class="n">BestSolver</span>
 
 <span class="k">class</span> <span class="nc">custom</span><span class="p">(</span><span class="n">SatAPI</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">energy</span><span class="p">:</span> <span class="n">Posiform</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">energy</span><span class="p">:</span> <span class="n">Posiform</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">BestSolver</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
-            <span class="n">expression</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">posiform</span><span class="p">),</span>
-            <span class="n">variables</span><span class="o">=</span><span class="n">posiform</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span>
+            <span class="n">expression</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">energy</span><span class="p">),</span>
+            <span class="n">variables</span><span class="o">=</span><span class="n">energy</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span>
             <span class="n">objective</span><span class="o">=</span><span class="n">BestSolver</span><span class="o">.</span><span class="n">MINIMIZE</span>
             <span class="p">)</span>
 
