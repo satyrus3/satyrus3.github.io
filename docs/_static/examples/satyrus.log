@@ -1,36 +1,10 @@
 Traceback (most recent call last):
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\cli\cli.py", line 315, in run
-    answer: tuple[dict, float] | str = sat_api[solver].solve(**params)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\api\api.py", line 171, in __getitem__
-    return self.subclasses[key](satyrus=self.satyrus).__solver()
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\api\api.py", line 179, in __solver
-    self.satyrus.compile()
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\satyrus.py", line 51, in compile
-    if (self.compiler.compile(Source(fname=self.path))):
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\cli\cli.py", line 369, in run
+    answer: tuple[dict, float] | str | object = api(**params)
   File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\satlib\performance.py", line 29, in timed_callback
     _ = callback(*args, **kwargs)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 178, in compile
-    raise error
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 165, in compile
-    self.execute([CMD_INIT, *BYTECODE, CMD_SCRIPT])
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 209, in execute
-    self.exec(stmt)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 234, in exec
-    return self.instructions[cmd](self, *args)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\instructions\def_constraint.py", line 174, in def_constraint
-    compiler.evaluate(expr, miss=False, calc=True, null=False),
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 305, in evaluate
-    result = self._evaluate(item, miss, calc, null)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\compiler\compiler.py", line 321, in _evaluate
-    return Expr.calculate(Expr(item.head, *(self._evaluate(p, miss, calc) for p in item.tail)))
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 543, in calculate
-    return cls.apply(cls.back_apply(expr, cls.apply_rule), cls.apply_rule)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 626, in back_apply
-    return f(cls(e.head, *t, *a, **kw))
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 519, in apply_rule
-    e = rule(cls, *e.tail)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 395, in R_NEG
-    return cls.TABLE[T_NEG][x.head](cls, *x.tail)
-  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\types\expr.py", line 715, in <lambda>
-    T_MUL: (lambda x, *Y: Expr(T_MUL, x._NEG_(), *Y)),
-TypeError: _NEG_() missing 1 required positional argument: 'self'
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\api\api.py", line 188, in __call__
+    return self[name]().solve(self.__energy__, **params)
+  File "brutus.py", line 32, in solve
+    return ({x[i]: int(S[i]) for i in range(n)}, E + c)
+NameError: name 'c' is not defined
