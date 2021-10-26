@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\cli\cli.py", line 369, in run
+    answer: tuple[dict, float] | str | object = api(**params)
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\satlib\performance.py", line 29, in timed_callback
+    _ = callback(*args, **kwargs)
+  File "C:\Users\Pedro\AppData\Roaming\Python\Python39\site-packages\satyrus\api\api.py", line 188, in __call__
+    return self[name]().solve(self.__energy__, **params)
+  File "brutus.py", line 32, in solve
+    return ({x[i]: int(S[i]) for i in range(n)}, E + c)
+NameError: name 'c' is not defined
