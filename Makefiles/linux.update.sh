@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-if [ -d ".../Satyrus3-docs/docs/build/html" ]
+if [ -d "../Satyrus3-docs/docs/build/html" ]
 then
-    rm -rf ../docs
-    mkdir ../docs
-    cp -r .../Satyrus3-docs/docs/build/html/* ../docs
+    rm -rf ./docs
+    mkdir ./docs
+    mkdir "./docs/v$1"
+    cp -r ../Satyrus3-docs/docs/build/html/* "./docs/v$1"
     exit 0
 else
     exit 1

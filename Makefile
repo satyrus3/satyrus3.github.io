@@ -4,9 +4,11 @@ else
 	fname="./Makefiles/linux.mk"
 endif
 
+v=3.7.0
+
 all: update deploy
 
 update:
-	make update --makefile=$(fname)
+	make update --makefile=$(fname) v=$(v)
 deploy:
-	make deploy --makefile=$(fname)
+	make deploy --makefile=$(fname) v=$(v)

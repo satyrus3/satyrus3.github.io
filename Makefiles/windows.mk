@@ -1,7 +1,9 @@
+v=3.0.7
+
 update:
-	@.\windows.update
+	@.\Makefiles\windows.update $(v)
 
 deploy:
-	git add ..\docs
-	git commit -m "Update Docs"
-	git push
+	@git add .\docs
+	@git commit -m "Update Docs"
+	@git push
