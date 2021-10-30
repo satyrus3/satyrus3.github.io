@@ -4,7 +4,7 @@ else
 	fname="./Makefiles/linux.mk"
 endif
 
-v=3.7.0
+v=3.0.7
 
 all: update deploy
 
